@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from comprehend_service import ComprehendService
+from comprehend_service import comprehend_Ai
 
 app = Flask(__name__)
 
 AWS_REGION = 'ca-central-1'
-comprehend_service = ComprehendService(AWS_REGION)
+comprehend_service = comprehend_Ai(AWS_REGION)
 @app.route('/')
 def index():
     return render_template('index.html')
