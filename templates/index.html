@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis with AWS Comprehend</h1>
+    <form id="sentiment-form">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('sentiment-form').onsubmit = async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+        };
+    </script>
+</body>
+</html>
