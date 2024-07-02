@@ -4,7 +4,7 @@ from comprehend_service import ComprehendService
 app = Flask(__name__)
 
 AWS_REGION = 'ca-central-1'
-comprehend_service = comprehend_service(AWS_REGION)
+comprehend_service = ComprehendService(AWS_REGION)
 @app.route('/')
 def index():
     return render_template('index.html')
