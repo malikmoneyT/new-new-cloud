@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from comprehend_service import comprehend_Ai
+from comprehend_service import ComprehendService
 
 app = Flask(__name__)
 
